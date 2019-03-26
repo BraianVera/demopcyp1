@@ -9,11 +9,7 @@ namespace ConsoleApplication1
     
     class Program
     {
-        private static  string[] colors = { "MAGENTA", "RED", "WHITE", "BLUE", "CYAN" };
-        private static  string[] removeColors = { "RED", "WHITE", "BLUE" };
-
-        public static List<string> listacolors = new List <string>();
-        public static List<string> listaremoveColor= new List<string>();
+       
 
         public static Dictionary<string, int> values = new Dictionary<string, int>();
 
@@ -23,6 +19,14 @@ namespace ConsoleApplication1
         {
 
 
+            
+
+            Console.ReadKey();
+
+        }
+
+       public void ejercicio1()
+        {
             String parrafo = Console.ReadLine();
 
             Console.WriteLine(parrafo);
@@ -37,15 +41,15 @@ namespace ConsoleApplication1
                 {
 
                     int numero = values[separadas[i]];
-                    values[separadas[i]] = numero+1;
+                    values[separadas[i]] = numero + 1;
                 }
                 else
                 {
-                    values.Add(separadas[i],1);
+                    values.Add(separadas[i], 1);
                 }
             }
 
-            foreach(KeyValuePair<string, int> entrada in values)
+            foreach (KeyValuePair<string, int> entrada in values)
             {
 
                 Console.WriteLine("{0}, {1}", entrada.Key, entrada.Value);
@@ -53,102 +57,8 @@ namespace ConsoleApplication1
             }
 
             Console.ReadKey();
-
         }
 
-        private static void DemoLista()
-        {
-            for (int i = 0; i < colors.Length; i++)
-            {
-                listacolors.Add(colors[i]);
-                Console.WriteLine("colore:{0}", colors[i]);
-            }
-            for (int j = 0; j < removeColors.Length; j++)
-            {
-                listaremoveColor.Add(removeColors[j]);
-            }
-          
-        }
 
-        /*public static void lisat()
-        {
-
-        using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleAppUI
-{
-    /// <summary>
-    /// Uso de listas con la clase List
-    /// </summary>
-    class Program
-    {
-        private static readonly string[] colors = { "MAGENTA", "RED", "WHITE", "BLUE", "CYAN" };
-        private static readonly string[] removeColors = { "RED", "WHITE", "BLUE" };
-
-        static void Main(string[] args)
-        {
-            DemoLista();
-        }
-
-        #region Ejemplo de lista
-        private static void DemoLista()
-        {
-            List<string> list = new List<string>();
-
-            // Añade elementos de colors a la Lista (uno por uno)
-            foreach (var color in colors)
-            {
-                list.Add(color);
-            }
-
-            // Añade elementos del arreglo desde el constructor
-            List<string> removeList = new List<string>(removeColors);
-
-            Console.WriteLine("List: ");
-            MostrarLista(list);
-
-            // remueve colores
-            RemueveColores(list, removeList);
-
-            Console.WriteLine("\nList después de llamar a RemueveColores: ");
-            MostrarLista(list);
-        }
-        private static void MostrarLista(List<string> list)
-        {
-            // muestra el contenido con foreach
-            foreach (var element in list)
-            {
-                Console.Write("{0} ", element);
-            }
-
-            // muestra tamaño y capacidad
-            Console.WriteLine("\nTamaño = {0}; Capacidad = {1}",
-               list.Count, list.Capacity);
-
-            int index = list.IndexOf("BLUE");
-
-            if (index != -1)
-                Console.WriteLine("La lista contiene BLUE en índice {0}.",
-                   index);
-            else
-                Console.WriteLine("La lista no contiene BLUE.");
-        }
-        private static void RemueveColores(List<string> firstList, List<string> secondList)
-        {
-            for (int count = 0; count < secondList.Count; ++count)
-            {
-                firstList.Remove(secondList[count]);
-            }
-        } 
-        #endregion
-
-    }
-}
-
-        }*/
     }
 }
