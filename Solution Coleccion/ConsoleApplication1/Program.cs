@@ -15,7 +15,7 @@ namespace ConsoleApplication1
         public static List<string> listacolors = new List <string>();
         public static List<string> listaremoveColor= new List<string>();
 
-    
+        public static Dictionary<string, int> values = new Dictionary<string, int>();
 
         private static string[] nuevo = new string[5];
 
@@ -23,22 +23,34 @@ namespace ConsoleApplication1
         {
 
 
+            String parrafo = Console.ReadLine();
 
-            for (int i = 0; i <colors.Length; i++)
+            Console.WriteLine(parrafo);
+
+            string[] separadas;
+            separadas = parrafo.Split(' ');
+
+            for (int i = 0; i < separadas.Length; i++)
             {
-                listacolors.Add(colors[i]);
-                Console.WriteLine("colore:{0}",colors[i]);
-            }       
-            for (int j = 0; j <removeColors.Length ; j++)
-            {
-                listaremoveColor.Add(removeColors[j]);
+
+                if (values.ContainsKey(separadas[i]))
+                {
+
+                    int numero = values[separadas[i]];
+                    values[separadas[i]] = numero+1;
+                }
+                else
+                {
+                    values.Add(separadas[i],1);
+                }
             }
-            for (int i = 0; i <; i++)
+
+            foreach(KeyValuePair<string, int> entrada in values)
             {
 
+                Console.WriteLine("{0}, {1}", entrada.Key, entrada.Value);
+
             }
-
-
 
             Console.ReadKey();
 
@@ -55,10 +67,7 @@ namespace ConsoleApplication1
             {
                 listaremoveColor.Add(removeColors[j]);
             }
-            for (int i = 0; i <; i++)
-            {
-
-            }
+          
         }
 
         /*public static void lisat()
